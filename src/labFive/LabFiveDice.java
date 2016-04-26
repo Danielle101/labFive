@@ -2,19 +2,19 @@
 package labFive;
 import java.util.*;
 public class LabFiveDice {
-
+static Scanner sc = new Scanner (System.in);
 	public static void main(String[] args) {
 //welcome the user to the game and ask if they would like to play
 		System.out.println("Welcome to the Grand Circus Casino! Roll the dice? (y/n) :");
-		Scanner userInput = new Scanner (System.in);
-		String choice2 = userInput.nextLine();
+		
+		String choice2 = Validator.getString("Roll the dice? (y/n) :");
 		
 				while (choice2.equalsIgnoreCase("y"))
 				{	
 //if the user inputs "y" then ask how many faces they'd like on their dice
 		System.out.println("Please enter how many faces you'd like on your dice:");
 //turn the number input from the user into an integer
-		int diceNumber = Integer.parseInt(userInput.nextLine());
+		int diceNumber = Validator.readValidInt();
 		Random random1 = new Random ();
 // generate the random number for dieOne and dieTwo using the dieUno method by using the formula random1.nextInt(diceNumber)+1; 
 		int dieOne = dieUno(diceNumber, random1);
@@ -28,7 +28,7 @@ public class LabFiveDice {
 					System.out.println (dieTwo);
 					System.out.println ("You rolled Snake Eyes!");
 					System.out.println("Roll again? (y/n)");
-					choice2 = userInput.nextLine();
+					choice2 = sc.nextLine();
 				}
 //if the user does not rolls two ones then a message displaying the two numbers they rolled will appear
 				else {
@@ -36,8 +36,7 @@ public class LabFiveDice {
 				}
 				System.out.println (dieOne); 
 				System.out.println (dieTwo);
-				System.out.println("Roll again? (y/n)");
-				choice2 = userInput.nextLine();
+				choice2 = Validator.getString("Roll again? (y/n)");
 				}
 //if the user does not want to play the game at all or does not want to play again display "Bye!".
 				System.out.println("Bye!");

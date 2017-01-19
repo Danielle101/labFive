@@ -1,4 +1,5 @@
-//this app simulates a dice rolling game
+//Author: Danielle Hall
+//Description: This app simulates a dice rolling game
 package labFive;
 import java.util.*;
 public class LabFiveDice {
